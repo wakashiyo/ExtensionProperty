@@ -1,15 +1,15 @@
 //
-//  ExtensionPropertyTests.swift
-//  ExtensionPropertyTests
+//  PlaygroundTests.swift
+//  PlaygroundTests
 //
-//  Created by 吉川昂広 on 2018/12/12.
+//  Created by 吉川昂広 on 2018/12/15.
 //  Copyright © 2018 takahiro yoshikawa. All rights reserved.
 //
 
 import XCTest
-@testable import ExtensionProperty
+@testable import Playground
 
-class ExtensionPropertyTests: XCTestCase {
+class PlaygroundTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

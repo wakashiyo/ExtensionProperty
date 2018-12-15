@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ExtensionProperty
+//  Playground
 //
-//  Created by 吉川昂広 on 2018/12/12.
+//  Created by 吉川昂広 on 2018/12/15.
 //  Copyright © 2018 takahiro yoshikawa. All rights reserved.
 //
 
