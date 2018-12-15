@@ -12,14 +12,14 @@ class ActionSheetController: UIViewController, UIViewControllerTransitioningDele
     
     lazy var baseView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.gray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var ActionSheet: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = UIColor.white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
