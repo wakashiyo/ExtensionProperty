@@ -51,8 +51,12 @@ class ViewController: UIViewController {
 
     @objc
     func tapped() {
-        let alert = AlertController()
-        self.present(alert, animated: true, completion: nil)
+        //let alert = AlertController()
+        //self.present(alert, animated: true, completion: nil)
+        
+        let actionsheet = ActionSheetController()
+        self.present(actionsheet, animated: true, completion: nil)
+        
 //        UIView.animate(withDuration: 0.3, animations: {
 //            self.button.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
 //            self.v.alpha = 0.5

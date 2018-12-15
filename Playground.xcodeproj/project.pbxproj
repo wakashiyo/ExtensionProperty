@@ -17,6 +17,8 @@
 		5933463F21C4987E00581D3A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933463E21C4987E00581D3A /* Extensions.swift */; };
 		5933464121C499E100581D3A /* AlertAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933464021C499E100581D3A /* AlertAnimation.swift */; };
 		5933464521C49BD400581D3A /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933464421C49BD400581D3A /* AlertController.swift */; };
+		5982821721C4F17200C49E2A /* ActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982821621C4F17200C49E2A /* ActionSheetController.swift */; };
+		5982821921C4F18D00C49E2A /* ActionSheetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982821821C4F18D00C49E2A /* ActionSheetAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5933463E21C4987E00581D3A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5933464021C499E100581D3A /* AlertAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAnimation.swift; sourceTree = "<group>"; };
 		5933464421C49BD400581D3A /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		5982821621C4F17200C49E2A /* ActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetController.swift; sourceTree = "<group>"; };
+		5982821821C4F18D00C49E2A /* ActionSheetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +107,14 @@
 		5933460F21C4967C00581D3A /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				5982821A21C4F7B800C49E2A /* CustomAlert */,
 				5933461021C4967C00581D3A /* AppDelegate.swift */,
 				5933463E21C4987E00581D3A /* Extensions.swift */,
 				5933461221C4967C00581D3A /* ViewController.swift */,
-				5933464021C499E100581D3A /* AlertAnimation.swift */,
 				5933461421C4967C00581D3A /* Main.storyboard */,
 				5933461721C4967D00581D3A /* Assets.xcassets */,
 				5933461921C4967D00581D3A /* LaunchScreen.storyboard */,
 				5933461C21C4967D00581D3A /* Info.plist */,
-				5933464421C49BD400581D3A /* AlertController.swift */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -132,6 +135,17 @@
 				5933463221C4967D00581D3A /* Info.plist */,
 			);
 			path = PlaygroundUITests;
+			sourceTree = "<group>";
+		};
+		5982821A21C4F7B800C49E2A /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				5933464421C49BD400581D3A /* AlertController.swift */,
+				5933464021C499E100581D3A /* AlertAnimation.swift */,
+				5982821621C4F17200C49E2A /* ActionSheetController.swift */,
+				5982821821C4F18D00C49E2A /* ActionSheetAnimation.swift */,
+			);
+			path = CustomAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +283,9 @@
 				5933464521C49BD400581D3A /* AlertController.swift in Sources */,
 				5933463F21C4987E00581D3A /* Extensions.swift in Sources */,
 				5933461121C4967C00581D3A /* AppDelegate.swift in Sources */,
+				5982821921C4F18D00C49E2A /* ActionSheetAnimation.swift in Sources */,
 				5933464121C499E100581D3A /* AlertAnimation.swift in Sources */,
+				5982821721C4F17200C49E2A /* ActionSheetController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
