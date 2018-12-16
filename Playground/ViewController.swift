@@ -38,11 +38,11 @@ class ViewController: UIViewController {
 
     @objc
     func tapped() {
-        //let alert = AlertController()
-        //self.present(alert, animated: true, completion: nil)
+        let alert = AlertController()
+        self.present(alert, animated: true, completion: nil)
         
-        let actionsheet = ActionSheetController()
-        self.present(actionsheet, animated: true, completion: nil)
+        //let actionsheet = ActionSheetController()
+        //self.present(actionsheet, animated: true, completion: nil)
     }
     
     @objc

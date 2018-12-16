@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    //delegate
     var delegate: SliderDelegate?
 
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class MainViewController: UIViewController {
         mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
+    //notification of dispaly sidemenu
     @objc
     func mainSlide() {
         print("slide")

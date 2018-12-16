@@ -11,15 +11,18 @@ import UIKit
 
 class ManagerViewController: UIViewController, SliderDelegate {
     
+    //containerview of sidemenu
     lazy var sideContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
+    //containerview of mainmenu
     lazy var mainContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        //left side of mainContainer add shadow
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor //色
         view.layer.shadowOpacity = 0.5 // 透明度
@@ -28,10 +31,13 @@ class ManagerViewController: UIViewController, SliderDelegate {
         return view
     }()
     
+    //viewcontroller of mainmenu
     var mainVC: UIViewController!
     
+    //viewcontroller of sidemenu
     var sideVC: UIViewController!
     
+    //when display sidemenu, this button wrapped maincontainer
     lazy var slideCloseButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.clear
@@ -63,11 +69,20 @@ class ManagerViewController: UIViewController, SliderDelegate {
         main.delegate = self
     }
     
+    //add childViewController
     func addChildViewController(_ vc: UIViewController, _ view: UIView) {
         self.addChild(vc)
         view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
+    
+    
+    /*
+      mainContainer over the sideContainer
+      mainContainer layout equal to layout of superview in ViewController
+      sideContainer layout eaual to leading, top, bottom of superview in ViewController
+      width of sideContainer is any value
+    */
     
     func layoutContainer() {
         view.addSubview(sideContainer)
@@ -84,6 +99,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
         mainContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
+    //animation of display sidemenu
     func showSlide() {
         UIView.animate(withDuration: 0.5,
                        animations: {
@@ -91,7 +107,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
         },
                        completion: { bool in
                         self.mainContainer.addSubview(self.slideCloseButton)
-                        //self.slideCloseButton.frame = self.mainContainer.frame
+                        
                         self.slideCloseButton.leadingAnchor.constraint(equalTo: self.mainContainer.leadingAnchor).isActive = true
                         self.slideCloseButton.topAnchor.constraint(equalTo: self.mainContainer.topAnchor).isActive = true
                         self.slideCloseButton.trailingAnchor.constraint(equalTo: self.mainContainer.trailingAnchor).isActive = true
@@ -99,6 +115,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
         })
     }
     
+    //animation of close sidemenu
     @objc
     func closeSlide() {
         UIView.animate(withDuration: 0.5,
@@ -106,6 +123,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
                         self.mainContainer.transform = CGAffineTransform.identity
         },
                        completion: { bool in
+                        //delete slideCloseButton
                         self.mainContainer.subviews.last?.removeFromSuperview()
         })
     }

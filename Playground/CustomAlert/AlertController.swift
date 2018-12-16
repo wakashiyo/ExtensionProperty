@@ -21,8 +21,6 @@ class AlertController: UIViewController, UIViewControllerTransitioningDelegate {
         let view = UIView()
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 10
-        //view.frame.size = CGSize(width: 200, height: 150)
-        //view.center = self.view.center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -32,7 +30,7 @@ class AlertController: UIViewController, UIViewControllerTransitioningDelegate {
         //init時に宣言しないと、前の画面を透過しない
         self.providesPresentationContextTransitionStyle = true
         self.definesPresentationContext = true
-        self.modalPresentationStyle = UIModalPresentationStyle.custom
+        self.modalPresentationStyle = UIModalPresentationStyle.custom  //overFullScreen, overCurrentContextでも透過したけど、、、違いわからん。。。
         self.transitioningDelegate = self
     }
     
