@@ -19,12 +19,21 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         return button
     }()
+    
+    lazy var button2: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.blue
+        button.frame.size = CGSize(width: 100, height: 80)
+        button.frame.origin = CGPoint(x: 100, y: 100)
+        button.addTarget(self, action: #selector(nextVC), for: .touchUpInside)
+        return button
+    }()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.addSubview(button)
+        view.addSubview(button2)
     }
 
     @objc
@@ -34,6 +43,14 @@ class ViewController: UIViewController {
         
         let actionsheet = ActionSheetController()
         self.present(actionsheet, animated: true, completion: nil)
+    }
+    
+    @objc
+    func nextVC() {
+        let nav = UINavigationController(rootViewController: MainViewController())
+        let side = SideMenuController()
+        let manager = ManagerViewController(nav, side)
+        present(manager, animated: true, completion: nil)
     }
     
 }

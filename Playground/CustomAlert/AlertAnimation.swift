@@ -25,13 +25,13 @@ class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if isPresent {
-            dismissAlertAnimation(transitionContext)
+            dismissAnimation(transitionContext)
         } else {
-            presentAlertAnimation(transitionContext)
+            presentAnimation(transitionContext)
         }
     }
     
-    func presentAlertAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
+    func presentAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
         let alert = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! AlertController
         
         let container = transitionContext.containerView
@@ -54,7 +54,7 @@ class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         
     }
     
-    func dismissAlertAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
+    func dismissAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
         
         let alert = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! AlertController
         
