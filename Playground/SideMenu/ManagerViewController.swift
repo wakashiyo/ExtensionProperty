@@ -9,6 +9,7 @@
 
 import UIKit
 
+//サイドメニューとその上に乗っているメインのコンテンツを管理するViewController
 class ManagerViewController: UIViewController, SliderDelegate {
     
     //containerview of sidemenu
@@ -88,6 +89,9 @@ class ManagerViewController: UIViewController, SliderDelegate {
         view.addSubview(sideContainer)
         view.addSubview(mainContainer)
         
+        //サイドメニューを入れるContainerViewのレイアウトは
+        //左側,上部,下部はViewControllerのViewのAnchorに合わせる
+        //幅だけ、定数で調整
         sideContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         sideContainer.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         sideContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

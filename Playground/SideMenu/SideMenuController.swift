@@ -8,8 +8,10 @@
 
 import UIKit
 
+//サイドメニューのViewController
 class SideMenuController: UIViewController {
     
+    //ここでのサイドメニューはシンプルにUITableViewで実装
     lazy var tableView: UITableView = {
         let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +22,7 @@ class SideMenuController: UIViewController {
         super.viewDidLoad()
 
         self.view.addSubview(tableView)
+        //tableViewのレイアウトはViewControllerのviewのAnchorに合わせる
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
