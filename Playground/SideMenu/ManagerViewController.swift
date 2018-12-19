@@ -59,10 +59,16 @@ class ManagerViewController: UIViewController, SliderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //各ContainerViewのレイアウトを決定する
         layoutContainer()
+        //各ViewContollerをaddChildViewControllerする
         addChildViewController(sideVC, sideContainer)
         addChildViewController(mainVC, mainContainer)
         
+        //メインのコンテンツ用のVCの型はUIViewControllerだが、
+        //サイドメニューの開く時のデリゲートを持っていないので、
+        //UINavigationController → MainViewControllerへとかキャストしている
+        //⭐️キャストする処理を無くしたいので、型の定義など、要修正
         guard let nav = mainVC as? UINavigationController else { return }
         print("nav")
         guard let main = nav.viewControllers[0] as? MainViewController else { return }
@@ -92,6 +98,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
         //サイドメニューを入れるContainerViewのレイアウトは
         //左側,上部,下部はViewControllerのViewのAnchorに合わせる
         //幅だけ、定数で調整
+        //幅の定数の定義については要修正
         sideContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         sideContainer.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         sideContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -110,8 +117,8 @@ class ManagerViewController: UIViewController, SliderDelegate {
                         self.mainContainer.transform = CGAffineTransform(translationX: 250, y: 0)
         },
                        completion: { bool in
+                        //メインのコンテンツ用のContainerView全体にサイドメニューを閉じる用のボタンを配置する
                         self.mainContainer.addSubview(self.slideCloseButton)
-                        
                         self.slideCloseButton.leadingAnchor.constraint(equalTo: self.mainContainer.leadingAnchor).isActive = true
                         self.slideCloseButton.topAnchor.constraint(equalTo: self.mainContainer.topAnchor).isActive = true
                         self.slideCloseButton.trailingAnchor.constraint(equalTo: self.mainContainer.trailingAnchor).isActive = true
