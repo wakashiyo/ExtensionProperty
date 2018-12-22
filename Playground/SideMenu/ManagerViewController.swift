@@ -65,14 +65,8 @@ class ManagerViewController<V: Slidable>: UIViewController, SliderDelegate {
         addChildViewController(sideVC, sideContainer)
         addChildViewController(mainVC, mainContainer)
         
-        //メインのコンテンツ用のVCの型はUIViewControllerだが、
-        //サイドメニューの開く時のデリゲートを持っていないので、
-        //UINavigationController → MainViewControllerへとかキャストしている
-        //⭐️キャストする処理を無くしたいので、型の定義など、要修正
-//        guard let nav = mainVC as? UINavigationController else { return }
-//        print("nav")
+        //cast : UINavigationController => V: Slidable
         guard let main = mainVC.viewControllers[0] as? V else { return }
-        print("main")
         main.delegate = self
     }
     
