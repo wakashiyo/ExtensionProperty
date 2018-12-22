@@ -9,31 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    lazy var button: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.text = "action"
-        button.frame.size = CGSize(width: 50, height: 30)
-        button.center = self.view.center
-        button.backgroundColor = UIColor.red
-        button.addTarget(self, action: #selector(tapped), for: .touchUpInside)
-        return button
-    }()
-    
-    lazy var button2: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.blue
-        button.frame.size = CGSize(width: 100, height: 80)
-        button.frame.origin = CGPoint(x: 100, y: 100)
-        button.addTarget(self, action: #selector(nextVC), for: .touchUpInside)
-        return button
-    }()
 
-
+    @IBOutlet weak var alertButton: UIButton!
+    
+    @IBOutlet weak var sideMenuButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(button)
-        view.addSubview(button2)
+        alertButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        sideMenuButton.addTarget(self, action: #selector(nextVC), for: .touchUpInside)
     }
 
     @objc
