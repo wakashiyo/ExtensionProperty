@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     func nextVC() {
         let nav = UINavigationController(rootViewController: MainViewController())
         let side = SideMenuController()
-        let manager = ManagerViewController(nav, side)
+        let manager = ManagerViewController<MainViewController>(nav, side)
         present(manager, animated: true, completion: nil)
     }
     

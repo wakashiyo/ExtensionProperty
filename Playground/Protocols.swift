@@ -26,3 +26,8 @@ protocol SliderDelegate: class {
     func showSlide()
     
 }
+
+protocol Slidable: class {
+    
+    var delegate: SliderDelegate? { get set }
+}

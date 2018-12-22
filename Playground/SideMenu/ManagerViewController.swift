@@ -10,7 +10,7 @@
 import UIKit
 
 //サイドメニューとその上に乗っているメインのコンテンツを管理するViewController
-class ManagerViewController: UIViewController, SliderDelegate {
+class ManagerViewController<V: Slidable>: UIViewController, SliderDelegate {
     
     //containerview of sidemenu
     lazy var sideContainer: UIView = {
@@ -33,7 +33,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
     }()
     
     //viewcontroller of mainmenu
-    var mainVC: UIViewController!
+    var mainVC: UINavigationController!
     
     //viewcontroller of sidemenu
     var sideVC: UIViewController!
@@ -47,7 +47,7 @@ class ManagerViewController: UIViewController, SliderDelegate {
         return button
     }()
     
-    init(_ main: UIViewController, _ side: UIViewController) {
+    init(_ main: UINavigationController, _ side: UIViewController) {
         super.init(nibName: nil, bundle: nil)
         self.mainVC = main
         self.sideVC = side
@@ -69,9 +69,9 @@ class ManagerViewController: UIViewController, SliderDelegate {
         //サイドメニューの開く時のデリゲートを持っていないので、
         //UINavigationController → MainViewControllerへとかキャストしている
         //⭐️キャストする処理を無くしたいので、型の定義など、要修正
-        guard let nav = mainVC as? UINavigationController else { return }
-        print("nav")
-        guard let main = nav.viewControllers[0] as? MainViewController else { return }
+//        guard let nav = mainVC as? UINavigationController else { return }
+//        print("nav")
+        guard let main = mainVC.viewControllers[0] as? V else { return }
         print("main")
         main.delegate = self
     }

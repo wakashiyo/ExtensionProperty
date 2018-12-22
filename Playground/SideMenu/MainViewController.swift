@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Slidable {
     
     lazy var mainView: UIView = {
         let view = UIView()
