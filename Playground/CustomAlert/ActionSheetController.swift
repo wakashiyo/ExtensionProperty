@@ -10,10 +10,12 @@ import UIKit
 
 class ActionSheetController: UIViewController, UIViewControllerTransitioningDelegate {
     
-    lazy var baseView: UIView = {
-        let view = UIView()
+    lazy var baseView: UIButton = {
+        let view = UIButton()
         view.backgroundColor = UIColor.gray
         view.translatesAutoresizingMaskIntoConstraints = false
+        //when baseView(UIButton) was tapped, close action sheet
+        view.addTarget(self, action: #selector(closeActionSheetByTappedBaseView), for: .touchUpInside)
         return view
     }()
     
@@ -39,6 +41,7 @@ class ActionSheetController: UIViewController, UIViewControllerTransitioningDele
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
+        print("view did load")
     }
     
     func layoutView() {
@@ -54,6 +57,13 @@ class ActionSheetController: UIViewController, UIViewControllerTransitioningDele
         ActionSheet.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         ActionSheet.topAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         ActionSheet.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
+    
+    //close action sheet
+    @objc
+    func closeActionSheetByTappedBaseView() {
+        print("close action")
+        self.dismiss(animated: true, completion: nil)
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

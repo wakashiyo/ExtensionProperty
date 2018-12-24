@@ -41,6 +41,7 @@ class AlertController: UIViewController, UIViewControllerTransitioningDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
+        print("view did load")
     }
     
     func layoutView() {

@@ -23,6 +23,11 @@
 		59692DC521C5535000AB1CE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59692DC421C5535000AB1CE5 /* MainViewController.swift */; };
 		5982821721C4F17200C49E2A /* ActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982821621C4F17200C49E2A /* ActionSheetController.swift */; };
 		5982821921C4F18D00C49E2A /* ActionSheetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982821821C4F18D00C49E2A /* ActionSheetAnimation.swift */; };
+		59C1BD0121D0772800DD4058 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1BD0021D0772800DD4058 /* PageViewController.swift */; };
+		59C1BD0321D0776100DD4058 /* HeadSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1BD0221D0776100DD4058 /* HeadSliderViewController.swift */; };
+		59C1BD0521D077BF00DD4058 /* TwoPageManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1BD0421D077BF00DD4058 /* TwoPageManagerController.swift */; };
+		59C1BD0821D078B500DD4058 /* A_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1BD0721D078B500DD4058 /* A_ViewController.swift */; };
+		59C1BD0A21D078C800DD4058 /* B_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1BD0921D078C800DD4058 /* B_ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		59692DC421C5535000AB1CE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5982821621C4F17200C49E2A /* ActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetController.swift; sourceTree = "<group>"; };
 		5982821821C4F18D00C49E2A /* ActionSheetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAnimation.swift; sourceTree = "<group>"; };
+		59C1BD0021D0772800DD4058 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		59C1BD0221D0776100DD4058 /* HeadSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadSliderViewController.swift; sourceTree = "<group>"; };
+		59C1BD0421D077BF00DD4058 /* TwoPageManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPageManagerController.swift; sourceTree = "<group>"; };
+		59C1BD0721D078B500DD4058 /* A_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_ViewController.swift; sourceTree = "<group>"; };
+		59C1BD0921D078C800DD4058 /* B_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,7 @@
 		5933460F21C4967C00581D3A /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				59C1BCFD21D076CF00DD4058 /* TwoPageVIew */,
 				59692DBF21C5530E00AB1CE5 /* SideMenu */,
 				5982821A21C4F7B800C49E2A /* CustomAlert */,
 				5933461021C4967C00581D3A /* AppDelegate.swift */,
@@ -166,6 +177,26 @@
 				5982821821C4F18D00C49E2A /* ActionSheetAnimation.swift */,
 			);
 			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		59C1BCFD21D076CF00DD4058 /* TwoPageVIew */ = {
+			isa = PBXGroup;
+			children = (
+				59C1BD0621D0788500DD4058 /* PageViewDataSource */,
+				59C1BD0021D0772800DD4058 /* PageViewController.swift */,
+				59C1BD0221D0776100DD4058 /* HeadSliderViewController.swift */,
+				59C1BD0421D077BF00DD4058 /* TwoPageManagerController.swift */,
+			);
+			path = TwoPageVIew;
+			sourceTree = "<group>";
+		};
+		59C1BD0621D0788500DD4058 /* PageViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				59C1BD0721D078B500DD4058 /* A_ViewController.swift */,
+				59C1BD0921D078C800DD4058 /* B_ViewController.swift */,
+			);
+			path = PageViewDataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,14 +331,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5933461321C4967C00581D3A /* ViewController.swift in Sources */,
+				59C1BD0A21D078C800DD4058 /* B_ViewController.swift in Sources */,
 				59692DC521C5535000AB1CE5 /* MainViewController.swift in Sources */,
 				5933464521C49BD400581D3A /* AlertController.swift in Sources */,
+				59C1BD0821D078B500DD4058 /* A_ViewController.swift in Sources */,
+				59C1BD0121D0772800DD4058 /* PageViewController.swift in Sources */,
+				59C1BD0321D0776100DD4058 /* HeadSliderViewController.swift in Sources */,
 				5933463F21C4987E00581D3A /* Extensions.swift in Sources */,
 				59692DC121C5532400AB1CE5 /* ManagerViewController.swift in Sources */,
 				5933461121C4967C00581D3A /* AppDelegate.swift in Sources */,
 				59692DC321C5533E00AB1CE5 /* SideMenuController.swift in Sources */,
 				5982821921C4F18D00C49E2A /* ActionSheetAnimation.swift in Sources */,
 				5933464121C499E100581D3A /* AlertAnimation.swift in Sources */,
+				59C1BD0521D077BF00DD4058 /* TwoPageManagerController.swift in Sources */,
 				5982821721C4F17200C49E2A /* ActionSheetController.swift in Sources */,
 				59692DBE21C550B200AB1CE5 /* Protocols.swift in Sources */,
 			);

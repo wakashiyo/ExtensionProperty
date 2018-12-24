@@ -14,19 +14,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sideMenuButton: UIButton!
     
+    @IBOutlet weak var toTwoPageButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         alertButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         sideMenuButton.addTarget(self, action: #selector(nextVC), for: .touchUpInside)
+        toTwoPageButton.addTarget(self, action: #selector(toTwoPageView), for: .touchUpInside)
     }
 
     @objc
     func tapped() {
-        let alert = AlertController()
-        self.present(alert, animated: true, completion: nil)
+        //let alert = AlertController()
+        //self.present(alert, animated: true, completion: nil)
         
-        //let actionsheet = ActionSheetController()
-        //self.present(actionsheet, animated: true, completion: nil)
+        let actionsheet = ActionSheetController()
+        self.present(actionsheet, animated: true, completion: nil)
     }
     
     @objc
@@ -35,6 +38,12 @@ class ViewController: UIViewController {
         let side = SideMenuController()
         let manager = ManagerViewController<MainViewController>(nav, side)
         present(manager, animated: true, completion: nil)
+    }
+    
+    @objc
+    func toTwoPageView() {
+        let twoPageManagerController = TwoPageManagerController()
+        present(twoPageManagerController, animated: true, completion: nil)
     }
     
 }
