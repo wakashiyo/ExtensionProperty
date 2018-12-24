@@ -43,5 +43,3 @@ extension HeaderSlidable {
         delegate?.slideUnderLine(status)
     }
 }
-
-
