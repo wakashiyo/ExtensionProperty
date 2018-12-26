@@ -47,16 +47,17 @@ class TwoPageManagerController: UIViewController, HeaderSlideDelegate {
     //HeaderSlideDelegateのメソッド
     //HeadSliderViewControllerのボタンが押された際に呼び出される
     func slideUnderLine(_ status: HeaderStatus) {
+        //例えば、、、
+        //左のページが表示されているときに、左のページに切り替える用のボタンを押しても何も起こらないようにする
+        guard self.status != status else { return }
         //タップアクションによるpage切り替えなので、trueにする
         duringTap = true
         //切り替えられた後のpageの状態を残す
         self.status = status
         //pageの切り替え
         switch status {
-        case .right:
-            underlineToRightFromLeft()
-        case .left:
-            underlineToLeftFromRight()
+        case .right: underlineToRightFromLeft()
+        case .left: underlineToLeftFromRight()
         }
         //タップアクションが終わったら、falseに戻す
         defer { duringTap = false }
@@ -100,20 +101,11 @@ extension TwoPageManagerController: UIPageViewControllerDataSource {
     }
 }
 
-extension TwoPageManagerController: UIPageViewControllerDelegate {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        print("will transition to")
-        
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        print("did finish animating")
-    }
-    
-}
-
 extension TwoPageManagerController: UIScrollViewDelegate {
+    
+    /*
+     条件分岐がネストになっているので、もっとスッキリさせたい。。。
+     */
     
     //pageの切り替えに伴い、underlineの移動を行う
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
