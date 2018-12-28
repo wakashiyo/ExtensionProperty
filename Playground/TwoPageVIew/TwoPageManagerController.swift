@@ -36,7 +36,6 @@ class TwoPageManagerController: UIViewController, HeaderSlideDelegate {
                 self.pageViewController = pageViewController
                 self.pageViewController.setViewControllers([getLeftPageDataSource()], direction: .forward, animated: true, completion: nil)
                 self.pageViewController.dataSource = self
-                self.pageViewController.delegate = self
                 self.pageViewController.view.subviews
                     .filter{ $0.isKind(of: UIScrollView.self) }
                     .forEach{ ($0 as! UIScrollView).delegate = self }

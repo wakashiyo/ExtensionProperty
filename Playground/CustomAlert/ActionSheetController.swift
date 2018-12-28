@@ -67,11 +67,11 @@ class ActionSheetController: UIViewController, UIViewControllerTransitioningDele
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ActionSheetAnimation(false)
+        return ActionSheetAnimation(.show)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ActionSheetAnimation(true)
+        return ActionSheetAnimation(.close)
     }
 
 }

@@ -9,18 +9,15 @@
 import Foundation
 import UIKit
 
-class ActionSheetAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+class ActionSheetAnimation: NSObject, UIViewControllerAnimatedTransitioning, Animatable {
     
-    //true dismiss
-    //false present
-    var isPresent: Bool
+    let type: D
     
     let duration: Double = 0.3
-    
     let height: CGFloat = 200
     
-    init(_ isPresent: Bool) {
-        self.isPresent = isPresent
+    required init(_ type: ActionSheetAnimation.D) {
+        self.type = type
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -28,10 +25,9 @@ class ActionSheetAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        if isPresent {
-            dismissAnimation(transitionContext)
-        } else {
-            presentAnimation(transitionContext)
+        switch type {
+        case .show: presentAnimation(transitionContext)
+        case .close: dismissAnimation(transitionContext)
         }
     }
     

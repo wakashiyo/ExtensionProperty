@@ -9,14 +9,12 @@
 import Foundation
 import UIKit
 
-class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning, Animatable {
     
-    //true: dismiss
-    //false: present
-    let isPresent: Bool
+    let type: D
     
-    init(_ isPresent: Bool) {
-        self.isPresent = isPresent
+    required init(_ type: AlertAnimation.D) {
+        self.type = type
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -24,12 +22,11 @@ class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        if isPresent {
-            dismissAnimation(transitionContext)
-        } else {
-            presentAnimation(transitionContext)
+        switch type {
+        case .show: presentAnimation(transitionContext)
+        case .close: dismissAnimation(transitionContext)
         }
-    }
+    }    
     
     func presentAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
         let alert = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! AlertController
@@ -51,11 +48,9 @@ class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                             alert.AlertView.transform = CGAffineTransform.identity
                         })
                         transitionContext.completeTransition(true) })
-        
     }
     
     func dismissAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
-        
         let alert = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! AlertController
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -65,7 +60,5 @@ class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(true)
         })
     }
-    
-    
-    
+
 }

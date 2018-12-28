@@ -60,11 +60,11 @@ class AlertController: UIViewController, UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AlertAnimation(true)
+        return AlertAnimation(.close)
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AlertAnimation(false)
+        return AlertAnimation(.show)
     }
 
 }

@@ -9,9 +9,15 @@
 import Foundation
 import UIKit
 
+enum Display {
+    case show
+    case close
+}
+
 protocol Animatable: class {
-    var isPresent: Bool { get set }
-    init(_ isPresent: Bool)
+    typealias D = Display
+    
+    init(_ type: D)
     func presentAnimation(_ transitionContext: UIViewControllerContextTransitioning)
     func dismissAnimation(_ transitionContext: UIViewControllerContextTransitioning)
 }
@@ -43,3 +49,21 @@ extension HeaderSlidable {
         delegate?.slideUnderLine(status)
     }
 }
+
+//protocol A {
+//    typealias T = Display
+//    init(_ type: T)
+//}
+//
+//class B: A {
+//    let b: T
+//    required init(_ type: B.T) {
+//        b = type
+//    }
+//}
+//
+//class C {
+//    init() {
+//        let b = B.init(.show)
+//    }
+//}
