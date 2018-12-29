@@ -67,3 +67,9 @@ extension HeaderSlidable {
 //        let b = B.init(.show)
 //    }
 //}
+
+enum MethodOfChangePage {
+    case TapLeft
+    case TapRight
+    case Swipe
+}

@@ -16,15 +16,10 @@ class TwoPageManagerController: UIViewController, HeaderSlideDelegate {
     @IBOutlet weak var underlineView: UIView!
     
     var pageViewController: UIPageViewController!
-    
-    //タップによるpageの切り替えなのか
-    //スクロールによるpageの切り替えなのか
-    //タップの場合：true
-    //スクロールの場合：false
-    var duringTap = false
-    
     //現在のpageの状態
     var status = HeaderStatus.left
+    //underlineの移動方法が、どのアクションによるものなのかのプロパティ
+    var pageChangeMethod = MethodOfChangePage.Swipe
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +44,23 @@ class TwoPageManagerController: UIViewController, HeaderSlideDelegate {
         //例えば、、、
         //左のページが表示されているときに、左のページに切り替える用のボタンを押しても何も起こらないようにする
         guard self.status != status else { return }
-        //タップアクションによるpage切り替えなので、trueにする
-        duringTap = true
-        //切り替えられた後のpageの状態を残す
+        //次に切り替えられるPageの状態を保持する
         self.status = status
-        //pageの切り替え
+        //Pageを切り替える
+        changePageByTappedButton(status)
+    }
+    
+    //ボタンによるPageの切り替え
+    func changePageByTappedButton(_ status: HeaderStatus) {
         switch status {
-        case .right: underlineToRightFromLeft()
-        case .left: underlineToLeftFromRight()
+        case .left:
+            self.pageChangeMethod = .TapLeft
+            underlineToLeftFromRight()
+        case .right:
+            self.pageChangeMethod = .TapRight
+            underlineToRightFromLeft()
         }
-        //タップアクションが終わったら、falseに戻す
-        defer { duringTap = false }
+        defer { self.pageChangeMethod = .Swipe }
     }
 
     //右にセットされているViewに切り替える
@@ -102,42 +103,41 @@ extension TwoPageManagerController: UIPageViewControllerDataSource {
 
 extension TwoPageManagerController: UIScrollViewDelegate {
     
-    /*
-     条件分岐がネストになっているので、もっとスッキリさせたい。。。
-     */
-    
     //pageの切り替えに伴い、underlineの移動を行う
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //ボタンによる移動なのか、スクロールによる移動なのか
-        //duringTap = true => ボタンによる移動
-        //duringTap = false => スクロールによる移動
-        switch duringTap {
-        case true:
-            //statusより右のViewか左のViewのどちらに切り替えるかを判断
-            switch self.status {
-                //.left => 左のViewに戻す
-            case .left:
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.underlineView.transform = CGAffineTransform.identity
-                })
-                //.right => 右のViewに切り替える
-            case .right:
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.underlineView.transform = CGAffineTransform(translationX: self.view.frame.width / 2, y: 0)
-                })
-            }
-        case false:
-            //スクロール量からうunderlineの移動量を算出
-            let amountOfMovement = (UIScreen.main.bounds.width - scrollView.contentOffset.x) / 2
-            //0の場合は、リセットされてしまうため、underlineの移動は行わない
-            guard amountOfMovement != 0 else { return }
-            //amountOfMovement < 0 の場合 => 左から右のViewへの切り替え
-            if amountOfMovement < 0 {
-                underlineView.transform = CGAffineTransform(translationX: -amountOfMovement, y: 0)
+        switch self.pageChangeMethod {
+        case .TapLeft:  pagingAnimateToLeftPageFromRightPage()
+        case .TapRight: pagingAnimateToRightPageFromLeftPage()
+        case .Swipe:    pagingAnimateByScroll(scrollView.contentOffset.x)
+        }
+    }
+    
+    //右ページからは左ページにunderlineを移動させる
+    func pagingAnimateToLeftPageFromRightPage() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.underlineView.transform = CGAffineTransform.identity
+        })
+    }
+    
+    //左ページから右ページへとunderlineを移動させる
+    func pagingAnimateToRightPageFromLeftPage() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.underlineView.transform = CGAffineTransform(translationX: self.view.frame.width / 2, y: 0)
+        })
+    }
+    
+    //スクロールによってunderlineを移動させる
+    func pagingAnimateByScroll(_ contentOffsetX: CGFloat) {
+        //スクロール量からうunderlineの移動量を算出
+        let amountOfMovement = (UIScreen.main.bounds.width - contentOffsetX) / 2
+        //0の場合は、リセットされてしまうため、underlineの移動は行わない
+        guard amountOfMovement != 0 else { return }
+        //amountOfMovement < 0 の場合 => 左から右のViewへの切り替え
+        if amountOfMovement < 0 {
+            underlineView.transform = CGAffineTransform(translationX: -amountOfMovement, y: 0)
             //amoutnOfMovement > 0 の場合 => 右から左のViewに戻る処理
-            } else {
-                underlineView.transform = CGAffineTransform(translationX: (UIScreen.main.bounds.width / 2) - amountOfMovement, y: 0)
-            }
+        } else {
+            underlineView.transform = CGAffineTransform(translationX: (UIScreen.main.bounds.width / 2) - amountOfMovement, y: 0)
         }
     }
 }
