@@ -8,8 +8,10 @@
 
 import UIKit
 
+//PageViewControllerの上部に配置する2つの切り替えボタンを配置したViewController
 class HeadSliderViewController: UIViewController, HeaderSlidable {
     
+    //Protocols.swift参照
     var delegate: HeaderSlideDelegate?
 
     @IBOutlet weak var leftButton: UIButton!
