@@ -17,6 +17,9 @@
 		5933463F21C4987E00581D3A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933463E21C4987E00581D3A /* Extensions.swift */; };
 		5933464121C499E100581D3A /* AlertAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933464021C499E100581D3A /* AlertAnimation.swift */; };
 		5933464521C49BD400581D3A /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933464421C49BD400581D3A /* AlertController.swift */; };
+		59420E2921EF979400437D47 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59420E2721EF979400437D47 /* CardCell.swift */; };
+		59420E2A21EF979400437D47 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59420E2821EF979400437D47 /* CardCell.xib */; };
+		59420E2C21EF9AA900437D47 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59420E2B21EF9AA900437D47 /* CardTableViewController.swift */; };
 		59692DBE21C550B200AB1CE5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59692DBD21C550B200AB1CE5 /* Protocols.swift */; };
 		59692DC121C5532400AB1CE5 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59692DC021C5532400AB1CE5 /* ManagerViewController.swift */; };
 		59692DC321C5533E00AB1CE5 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59692DC221C5533E00AB1CE5 /* SideMenuController.swift */; };
@@ -64,6 +67,9 @@
 		5933463E21C4987E00581D3A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5933464021C499E100581D3A /* AlertAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAnimation.swift; sourceTree = "<group>"; };
 		5933464421C49BD400581D3A /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		59420E2721EF979400437D47 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		59420E2821EF979400437D47 /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		59420E2B21EF9AA900437D47 /* CardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
 		59692DBD21C550B200AB1CE5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		59692DC021C5532400AB1CE5 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		59692DC221C5533E00AB1CE5 /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		5933460F21C4967C00581D3A /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				59F4B0A421EF8ADE007D6AF6 /* Cards */,
 				59C1BCFD21D076CF00DD4058 /* TwoPageVIew */,
 				59692DBF21C5530E00AB1CE5 /* SideMenu */,
 				5982821A21C4F7B800C49E2A /* CustomAlert */,
@@ -197,6 +204,16 @@
 				59C1BD0921D078C800DD4058 /* B_ViewController.swift */,
 			);
 			path = PageViewDataSource;
+			sourceTree = "<group>";
+		};
+		59F4B0A421EF8ADE007D6AF6 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				59420E2721EF979400437D47 /* CardCell.swift */,
+				59420E2821EF979400437D47 /* CardCell.xib */,
+				59420E2B21EF9AA900437D47 /* CardTableViewController.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +323,7 @@
 				5933461B21C4967D00581D3A /* LaunchScreen.storyboard in Resources */,
 				5933461821C4967D00581D3A /* Assets.xcassets in Resources */,
 				5933461621C4967C00581D3A /* Main.storyboard in Resources */,
+				59420E2A21EF979400437D47 /* CardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +364,8 @@
 				59C1BD0521D077BF00DD4058 /* TwoPageManagerController.swift in Sources */,
 				5982821721C4F17200C49E2A /* ActionSheetController.swift in Sources */,
 				59692DBE21C550B200AB1CE5 /* Protocols.swift in Sources */,
+				59420E2921EF979400437D47 /* CardCell.swift in Sources */,
+				59420E2C21EF9AA900437D47 /* CardTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
